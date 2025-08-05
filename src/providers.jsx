@@ -1,6 +1,6 @@
 import { HeroUIProvider } from '@heroui/react'
-import { Layout } from './layout'
 import CartProvider from './context/CartContext'
+import { Layout } from './layout/layout'
 
 export const Providers = ({ children }) => {
   return (
