@@ -1,8 +1,9 @@
 import { Button, ButtonGroup } from '@heroui/react'
 import { CartIcon, MinusIcon, PlusIcon, TrashIcon } from './icons/Icons'
 import useCartButton from '../hooks/useCartButton'
+import React from 'react'
 
-export const CartButton = ({ product }) => {
+export const CartButton = React.memo(({ product }) => {
   const { addToCart, editQuantity, getQuantity } = useCartButton(product)
 
   return (
@@ -45,4 +46,6 @@ export const CartButton = ({ product }) => {
       )}
     </>
   )
-}
+})
+
+CartButton.displayName = 'CartButton'

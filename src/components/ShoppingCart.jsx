@@ -45,7 +45,7 @@ export const ShoppingCart = ({ isOpen, onClose }) => {
         <DrawerFooter>
           <div className='flex justify-between items-center w-full'>
             <span className='text-lg font-semibold'>Total:</span>
-            <span className='text-lg font-semibold'>${getTotal(cart)}</span>
+            <span className='text-lg font-semibold'>${getTotal}</span>
           </div>
           <Button color='primary' className='w-full'>
             Proceder al pago

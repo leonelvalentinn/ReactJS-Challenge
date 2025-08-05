@@ -34,9 +34,10 @@ export default function useProductList() {
     if (query === '') {
       setFilteredProducts(products.current)
     } else {
-      setFilteredProducts((prev) =>
-        prev.filter((item) => item.title.toLocaleLowerCase().includes(query.toLocaleLowerCase()))
+      const resultProducts = products.current.filter((item) =>
+        item.title.toLocaleLowerCase().includes(query.toLocaleLowerCase())
       )
+      setFilteredProducts(resultProducts)
     }
 
     window.scrollTo({ top: 0, behavior: 'smooth' })

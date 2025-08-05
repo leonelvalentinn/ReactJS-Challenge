@@ -8,7 +8,6 @@ export const Header = () => {
     filter,
     isOpenShoppingCart,
     handleSetFilter,
-    cart,
     getTotalItems,
     closeShoppingCart,
     openShoppingCart,
@@ -40,11 +39,7 @@ export const Header = () => {
             onChange={(e) => handleSetFilter(e.target.value)}
           />
 
-          <Badge
-            color='primary'
-            content={getTotalItems(cart)}
-            isInvisible={getTotalItems(cart) === 0}
-          >
+          <Badge color='primary' content={getTotalItems} isInvisible={getTotalItems === 0}>
             <Button
               isIconOnly
               aria-label='Ver el carrito'

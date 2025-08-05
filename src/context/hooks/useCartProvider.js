@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { getCart, saveCart } from '../../utils/localStorage'
 
 export default function useCartProvider() {
@@ -30,15 +30,15 @@ export default function useCartProvider() {
     setFilter(query)
   }
 
-  const getTotalItems = (cart) => {
+  const getTotalItems = useMemo(() => {
     const totalItems = cart.reduce((total, item) => (total += item.quantity), 0)
     return totalItems
-  }
+  }, [cart])
 
-  const getTotal = (cart) => {
+  const getTotal = useMemo(() => {
     const total = cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)
     return total
-  }
+  }, [cart])
 
   useEffect(() => {
     const localCart = getCart()

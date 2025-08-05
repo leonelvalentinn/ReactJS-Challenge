@@ -1,7 +1,8 @@
 import { Card, CardBody, CardFooter, Image } from '@heroui/react'
 import { CartButton } from './CartButton'
+import React from 'react'
 
-export const ProductItem = ({ product }) => {
+export const ProductItem = React.memo(({ product }) => {
   return (
     <Card shadow='sm' as='li' className='bg-neutral-100'>
       <CardBody className='overflow-visible p-0'>
@@ -23,4 +24,6 @@ export const ProductItem = ({ product }) => {
       </CardFooter>
     </Card>
   )
-}
+})
+
+ProductItem.displayName = 'ProductItem'
