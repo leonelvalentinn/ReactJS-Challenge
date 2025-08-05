@@ -1,5 +1,5 @@
 import { Button, ButtonGroup } from '@heroui/react'
-import { CartIcon, MinusIcon, PlusIcon, TrashIcon } from '../assets/Icons'
+import { CartIcon, MinusIcon, PlusIcon, TrashIcon } from './icons/Icons'
 import useCartButton from '../hooks/useCartButton'
 
 export const CartButton = ({ product }) => {

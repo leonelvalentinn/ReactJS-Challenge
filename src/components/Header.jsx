@@ -1,5 +1,5 @@
 import { Badge, Button, Input, Navbar, NavbarBrand, NavbarContent } from '@heroui/react'
-import { CartIcon, SearchIcon } from '../assets/Icons'
+import { CartIcon, SearchIcon } from './icons/Icons'
 import { ShoppingCart } from './ShoppingCart'
 import useHeader from '../hooks/useHeader'
 
