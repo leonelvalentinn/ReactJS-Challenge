@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { getCart, saveCart } from '../../utils/localStorage'
 
 export default function useCartProvider() {
   const [cart, setCart] = useState([])
@@ -29,17 +30,25 @@ export default function useCartProvider() {
     setFilter(query)
   }
 
+  const getTotalItems = (cart) => {
+    const totalItems = cart.reduce((total, item) => (total += item.quantity), 0)
+    return totalItems
+  }
+
+  const getTotal = (cart) => {
+    const total = cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)
+    return total
+  }
+
   useEffect(() => {
-    const localCartItem = window.localStorage.getItem('cart')
-    if (localCartItem) {
-      setCart(JSON.parse(localCartItem))
-      setIsInitialized(true)
-    }
+    const localCart = getCart()
+    setCart(localCart)
+    setIsInitialized(true)
   }, [])
 
   useEffect(() => {
     if (isInitialized) {
-      window.localStorage.setItem('cart', JSON.stringify(cart))
+      saveCart(cart)
     }
   }, [cart, isInitialized])
 
@@ -49,5 +58,7 @@ export default function useCartProvider() {
     addToCart,
     editQuantity,
     handleSetFilter,
+    getTotalItems,
+    getTotal,
   }
 }
