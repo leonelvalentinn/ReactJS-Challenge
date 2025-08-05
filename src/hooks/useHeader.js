@@ -2,7 +2,7 @@ import { useState } from 'react'
 import useCartContext from '../context/hooks/useCartContext'
 
 export default function useHeader() {
-  const { handleSetFilter, filter, cart } = useCartContext()
+  const { handleSetFilter, filter, cart, getTotalItems } = useCartContext()
   const [isOpenShoppingCart, setIsOpenShoppingCart] = useState(false)
 
   const closeShoppingCart = () => {
@@ -13,21 +13,13 @@ export default function useHeader() {
     setIsOpenShoppingCart(true)
   }
 
-  const getTotalItems = (cart) => {
-    let totalItems = 0
-
-    cart.map((item) => (totalItems += item.quantity))
-
-    return totalItems
-  }
-
   return {
     handleSetFilter,
     filter,
     cart,
     isOpenShoppingCart,
     closeShoppingCart,
-    getTotalItems,
     openShoppingCart,
+    getTotalItems,
   }
 }
