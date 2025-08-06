@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { getCart, saveCart } from '../../utils/localStorage'
+import { addToast } from '@heroui/react'
 
 export default function useCartProvider() {
   const [cart, setCart] = useState([])
@@ -8,6 +9,10 @@ export default function useCartProvider() {
 
   const addToCart = (product) => {
     setCart((prev) => [...prev, { ...product, quantity: 1 }])
+    addToast({
+      description: 'Producto agregado',
+      color: 'success',
+    })
   }
 
   const editQuantity = (id, quantity) => {
@@ -17,12 +22,20 @@ export default function useCartProvider() {
 
     if (quantity === 0 || productSelected.quantity + quantity <= 0) {
       setCart((prev) => prev.filter((item) => item.id !== id))
+      addToast({
+        description: 'Producto eliminado',
+        color: 'warning',
+      })
     } else {
       setCart((prev) =>
         prev.map((item) =>
           item.id === id ? { ...item, quantity: item.quantity + quantity } : item
         )
       )
+      addToast({
+        description: 'Producto editado',
+        color: 'success',
+      })
     }
   }
 
