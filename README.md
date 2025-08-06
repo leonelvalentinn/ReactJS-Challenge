@@ -1,6 +1,6 @@
 # 🛍️ ReactJS Challenge
 
-Este proyecto es una prueba técnica para HEB. Se pide crear algunos componentes escenciales para una tienda línea desarrollada en React, usando la API de Fake Store de Platzi. Permite visualizar productos, filtrarlos y agregarlos al carrito de compras. Incluye tests básicos con React Testing Library y Vitest.
+Este proyecto es una prueba técnica para HEB. Se pide crear algunos componentes esenciales para una tienda línea desarrollada en React, usando la API de Fake Store de Platzi. Permite visualizar productos, filtrarlos y agregarlos al carrito de compras. Incluye tests básicos con React Testing Library y Vitest.
 
 ---
 
@@ -71,11 +71,14 @@ npm run test
 ```
 ├── src/
 │   ├── components/        # Componentes reutilizables
-│   ├── context/           # Contexto de carrito
+│   ├── context/           # Contexto del carrito
 │   ├── hooks/             # Custom hooks
+│   ├── layout/            # Layout para envolver la app
+│   ├── mocks/             # Datos de prueba para el desarrollo
 │   ├── tests/             # Pruebas unitarias
 │   ├── utils/             # Funciones auxiliares
 │   └── App.jsx
+│   └── providers.jsx      # Componente para envolver los providers
 ├── public/
 ├── index.html
 └── vite.config.js
