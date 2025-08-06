@@ -2,7 +2,7 @@ import { Card, Skeleton } from '@heroui/react'
 
 export const ItemSkeleton = () => {
   return (
-    <Card className='w-full space-y-5 p-4' radius='lg'>
+    <Card className='space-y-5 p-4 min-w-72' radius='lg' fullWidth>
       <Skeleton className='rounded-lg'>
         <div className='h-24 rounded-lg bg-default-300' />
       </Skeleton>
