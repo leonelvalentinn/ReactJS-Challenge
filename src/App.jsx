@@ -1,9 +1,12 @@
 import { ProductList } from './components/ProductList'
+import { Providers } from './providers'
 
 export default function App() {
   return (
-    <main>
-      <ProductList />
-    </main>
+    <Providers>
+      <main>
+        <ProductList />
+      </main>
+    </Providers>
   )
 }
