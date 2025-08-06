@@ -9,7 +9,13 @@ export const CartButton = React.memo(({ product }) => {
   return (
     <>
       {getQuantity() === 0 ? (
-        <Button color='primary' onPress={() => addToCart(product)}>
+        <Button
+          type='button'
+          isIconOnly
+          color='primary'
+          onPress={() => addToCart(product)}
+          aria-label={`Agregar ${product.title} al carrito`}
+        >
           <CartIcon className='w-4 h-4' />
         </Button>
       ) : (
@@ -19,7 +25,7 @@ export const CartButton = React.memo(({ product }) => {
               isIconOnly
               variant='flat'
               onPress={() => editQuantity(product.id, -1)}
-              aria-label='Eliminar una unidad'
+              aria-label={`Eliminar una unidad de ${product.title}`}
             >
               <MinusIcon className='w-4 h-4' />
             </Button>
@@ -28,7 +34,7 @@ export const CartButton = React.memo(({ product }) => {
               isIconOnly
               variant='flat'
               onPress={() => editQuantity(product.id, 1)}
-              aria-label='Agregar una unidad'
+              aria-label={`Agregar una unidad de ${product.title}`}
             >
               <PlusIcon className='w-4 h-4' />
             </Button>
@@ -38,7 +44,7 @@ export const CartButton = React.memo(({ product }) => {
             isIconOnly
             color='danger'
             variant='light'
-            aria-label='Borrar del carrito'
+            aria-label={`Eliminar ${product.title} del carrito`}
           >
             <TrashIcon className='w-4 h-4' />
           </Button>
